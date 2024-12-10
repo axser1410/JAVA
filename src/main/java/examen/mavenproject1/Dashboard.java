@@ -1,0 +1,810 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+package examen.mavenproject1;
+
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.intellijthemes.FlatDraculaIJTheme;
+import static examen.mavenproject1.Principal.gestionarEspecialidadMedicamento;
+import static examen.mavenproject1.Principal.reabastecerInventario;
+import static examen.mavenproject1.Principal.redistribuirMedicamentos;
+import static examen.mavenproject1.Principal.verificarMedicamentosCercaDeExpirar;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+
+/**
+ *
+ * @author Drake
+ */
+public class Dashboard extends javax.swing.JFrame {
+    /*CREACION DE OBJETOS
+    
+    */
+        private LS_NormalMedicamento listaMedicamentos = new LS_NormalMedicamento();
+        
+        private LS_NormalMedicamento antibioticos = new LS_NormalMedicamento();
+        
+        private LS_NormalMedicamento analgesicos = new LS_NormalMedicamento();
+        
+        private LS_NormalMedicamento antihistaminicos = new LS_NormalMedicamento();
+    
+    
+    
+    
+    
+    
+    
+    //FIN DE CREACION DE OBJETOS
+    
+    
+
+    /**
+     * Creates new form Dashboard
+     */
+    public Dashboard() {
+        initComponents();
+        
+        
+        
+        
+        
+        //LLENADO DE DATOS
+        
+
+        // Agregar medicamentos de ejemplo
+        Medicamento med1 = new Medicamento();
+        med1.setNombre("Amoxicilina");
+        med1.setID("MED001");
+        med1.setFechaExp("2024-12-05");
+        med1.setCant(5);
+        med1.setUbicacion("Estante A");
+        med1.setEspecialidad("Antibiotico");
+        listaMedicamentos.adiFinal(med1);
+
+        Medicamento med2 = new Medicamento();
+        med2.setNombre("Ibuprofeno");
+        med2.setID("MED002");
+        med2.setFechaExp("2025-01-15");
+        med2.setCant(50);
+        med2.setUbicacion("Estante B");
+        med2.setEspecialidad("Analgesico");
+        listaMedicamentos.adiFinal(med2);
+
+        Medicamento med3 = new Medicamento();
+        med3.setNombre("Loratadina");
+        med3.setID("MED003");
+        med3.setFechaExp("2025-12-01");
+        med3.setCant(20);
+        med3.setUbicacion("Estante C");
+        med3.setEspecialidad("Antihistaminico");
+        listaMedicamentos.adiFinal(med3);
+
+        
+        
+        
+        
+        //MEDICAMENTOS CREADOS PARA EL ALMACEN
+        
+        Medicamento med4 = new Medicamento();
+        med4.setNombre("Ibuprofeno");
+        med4.setID("MED004");
+        med4.setFechaExp("2026-03-15");
+        med4.setCant(50);
+        med4.setUbicacion("Estante D");
+        med4.setEspecialidad("Analgesico/Antiinflamatorio");
+        listaMedicamentos.adiFinal(med4);
+
+        Medicamento med5 = new Medicamento();
+        med5.setNombre("Amoxicilina");
+        med5.setID("MED005");
+        med5.setFechaExp("2024-09-10");
+        med5.setCant(30);
+        med5.setUbicacion("Estante A");
+        med5.setEspecialidad("Antibiotico");
+        listaMedicamentos.adiFinal(med5);
+
+        Medicamento med6 = new Medicamento();
+        med6.setNombre("Paracetamol");
+        med6.setID("MED006");
+        med6.setFechaExp("2025-07-21");
+        med6.setCant(60);
+        med6.setUbicacion("Estante B");
+        med6.setEspecialidad("Analgesico/Antipiretico");
+        listaMedicamentos.adiFinal(med6);
+
+        Medicamento med7 = new Medicamento();
+        med7.setNombre("Omeprazol");
+        med7.setID("MED007");
+        med7.setFechaExp("2026-01-30");
+        med7.setCant(40);
+        med7.setUbicacion("Estante E");
+        med7.setEspecialidad("Inhibidor de bomba de protones");
+        listaMedicamentos.adiFinal(med7);
+
+        Medicamento med8 = new Medicamento();
+        med8.setNombre("Ciprofloxacina");
+        med8.setID("MED008");
+        med8.setFechaExp("2025-11-11");
+        med8.setCant(25);
+        med8.setUbicacion("Estante F");
+        med8.setEspecialidad("Antibiotico");
+        listaMedicamentos.adiFinal(med8);
+        
+        
+        
+        
+        
+        //FIN MEDICAMENTOS CREADOS PARA EL ALMACEN
+        
+        //listaMedicamentos.mostrar();
+
+        //verificarMedicamentosCercaDeExpirar(listaMedicamentos, 30);
+        //reabastecerInventario(listaMedicamentos);
+        //redistribuirMedicamentos(listaMedicamentos, antibioticos, 10);
+        //gestionarEspecialidadMedicamento(listaMedicamentos, antibioticos, analgesicos, antihistaminicos, "Antibiotico", "Analgesico", "Antihistaminico");
+        
+        Almacen Almacen = new Almacen();
+        
+        
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaMedicamentos = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jButton8 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jButton9 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        textoNombre = new javax.swing.JTextField();
+        textoUbicacion = new javax.swing.JTextField();
+        textoCantidad = new javax.swing.JTextField();
+        textoExpiracion = new javax.swing.JTextField();
+        textoEspecialidad = new javax.swing.JTextField();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jButton10 = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        jButton11 = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Emoji", 3, 48)); // NOI18N
+        jLabel2.setText("GESTION DE INVENTARIO");
+
+        jButton2.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
+        jButton2.setText("VER LISTA DE MEDICAMENTOS");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
+        jButton3.setText("REABASTECER MEDICAMENTOS");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
+        jButton5.setText("REDISTRIBUIR MEDICAMENTOS");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
+        jButton6.setText("GESTIONAR ESPECIALIDAD");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jButton7.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
+        jButton7.setText("MEDICAMENTOS EXPIRADOS");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(136, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(134, 134, 134))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton7)
+                    .addComponent(jButton6)
+                    .addComponent(jButton5)
+                    .addComponent(jButton3)
+                    .addComponent(jButton2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(45, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Inicio", jPanel2);
+
+        tablaMedicamentos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Nombre", "Fecha_expiracion", "Cantidad", "Ubicacion", "Especialidad"
+            }
+        ));
+        jScrollPane1.setViewportView(tablaMedicamentos);
+
+        jButton1.setText("Actualizar Lista");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("MENU");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton14.setText("Agregar");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addContainerGap(14, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton14)
+                            .addComponent(jButton4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 675, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(144, 144, 144)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addGap(82, 82, 82))
+        );
+
+        jTabbedPane1.addTab("Lista Medicamentos", jPanel3);
+
+        jButton8.setText("MENU");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jButton8)
+                .addContainerGap(744, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap(367, Short.MAX_VALUE)
+                .addComponent(jButton8)
+                .addGap(82, 82, 82))
+        );
+
+        jTabbedPane1.addTab("Expiracion Medicamentos", jPanel4);
+
+        jButton9.setText("MENU");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setText("NOMBRE");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setText("FECHA EXPIRACION");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setText("CANTIDAD");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel5.setText("ESPECIALIDAD");
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setText("UBICACION");
+
+        textoNombre.setToolTipText("");
+        textoNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textoNombreActionPerformed(evt);
+            }
+        });
+
+        textoUbicacion.setToolTipText("");
+        textoUbicacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textoUbicacionActionPerformed(evt);
+            }
+        });
+
+        textoCantidad.setToolTipText("");
+        textoCantidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textoCantidadActionPerformed(evt);
+            }
+        });
+
+        textoExpiracion.setToolTipText("");
+        textoExpiracion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textoExpiracionActionPerformed(evt);
+            }
+        });
+
+        textoEspecialidad.setToolTipText("");
+        textoEspecialidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textoEspecialidadActionPerformed(evt);
+            }
+        });
+
+        jButton12.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jButton12.setText("AGREGAR");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+
+        jButton13.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jButton13.setText("VER LISTA");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jButton9))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(117, 117, 117)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(103, 103, 103)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textoExpiracion, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
+                            .addComponent(textoNombre)
+                            .addComponent(textoCantidad)
+                            .addComponent(textoUbicacion)
+                            .addComponent(textoEspecialidad)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(202, 202, 202)
+                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(56, 56, 56)
+                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(169, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textoExpiracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textoCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textoUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textoEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
+                .addComponent(jButton9)
+                .addGap(82, 82, 82))
+        );
+
+        jTabbedPane1.addTab("Reabastecer", jPanel1);
+
+        jButton10.setText("MENU");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jButton10)
+                .addContainerGap(744, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(367, Short.MAX_VALUE)
+                .addComponent(jButton10)
+                .addGap(82, 82, 82))
+        );
+
+        jTabbedPane1.addTab("Redistribuir", jPanel5);
+
+        jButton11.setText("MENU");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jButton11)
+                .addContainerGap(744, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(367, Short.MAX_VALUE)
+                .addComponent(jButton11)
+                .addGap(82, 82, 82))
+        );
+
+        jTabbedPane1.addTab("Gestionar", jPanel6);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1)
+        );
+
+        pack();
+        setLocationRelativeTo(null);
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+       actualizarLista();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // CUARTO PANEL REABASTECER
+        jTabbedPane1.setSelectedComponent(jPanel1);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedComponent(jPanel2);
+
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedComponent(jPanel3);
+        actualizarLista();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // QUINTO PANEL
+        jTabbedPane1.setSelectedComponent(jPanel5);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // SEXTO PANEL
+        jTabbedPane1.setSelectedComponent(jPanel6);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TERCER PANEL
+        jTabbedPane1.setSelectedComponent(jPanel4);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedComponent(jPanel2);
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedComponent(jPanel2);
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedComponent(jPanel2);
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedComponent(jPanel2);
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void textoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textoNombreActionPerformed
+
+    private void textoUbicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoUbicacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textoUbicacionActionPerformed
+
+    private void textoCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoCantidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textoCantidadActionPerformed
+
+    private void textoExpiracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoExpiracionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textoExpiracionActionPerformed
+
+    private void textoEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoEspecialidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textoEspecialidadActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // BOTON DE AGREGAR INVENTARIO
+        agregarInventario();
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // 
+        jTabbedPane1.setSelectedComponent(jPanel3);
+        actualizarLista();
+        
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // BOTON QUE VA A PESTAÑA AGREGAR
+        jTabbedPane1.setSelectedComponent(jPanel1);
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        FlatDraculaIJTheme.setup();
+        
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Dashboard().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable tablaMedicamentos;
+    private javax.swing.JTextField textoCantidad;
+    private javax.swing.JTextField textoEspecialidad;
+    private javax.swing.JTextField textoExpiracion;
+    private javax.swing.JTextField textoNombre;
+    private javax.swing.JTextField textoUbicacion;
+    // End of variables declaration//GEN-END:variables
+
+   private void actualizarLista() {
+    // Determinar el tamaño de la lista
+    int numMedicamentos = listaMedicamentos.contar(); // Método para contar elementos en la lista
+    String[][] medicamentos = new String[numMedicamentos][6]; // Cambiamos dimensiones dinámicamente
+
+    int i = 0;
+    NodoMedicamento R = listaMedicamentos.P;
+    while (R != null) {
+        medicamentos[i][0] = R.getMedicamento().getID();
+        medicamentos[i][1] = R.getMedicamento().getNombre();
+        medicamentos[i][2] = R.getMedicamento().getFechaExp();
+        medicamentos[i][3] = String.valueOf(R.getMedicamento().getCant());
+        medicamentos[i][4] = R.getMedicamento().getUbicacion();
+        medicamentos[i][5] = R.getMedicamento().getEspecialidad();
+        R = R.getSig();
+        i++;
+    }
+
+    // Crear el modelo de tabla dinámicamente
+    tablaMedicamentos.setModel(new javax.swing.table.DefaultTableModel(
+        medicamentos,
+        new String[]{
+            "ID", "Nombre", "Fecha Expiración", "Cantidad", "Ubicación", "Especialidad"
+        }
+    ));
+    jScrollPane1.setViewportView(tablaMedicamentos);
+}
+
+    private void agregarInventario() {
+        if (textoNombre.getText().isEmpty() || textoExpiracion.getText().isEmpty() ||
+            textoCantidad.getText().isEmpty() || textoUbicacion.getText().isEmpty() || 
+            textoEspecialidad.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor, llene todos los campos.", 
+                                          "Campos Vacíos", JOptionPane.WARNING_MESSAGE);
+        } else {
+            
+            Medicamento item = new Medicamento();
+            item.setNombre(textoNombre.getText());
+            item.setFechaExp(textoExpiracion.getText());
+            
+            String cantidadTexto = textoCantidad.getText();
+
+            try {
+                // Convierte el texto a entero
+                int cantidad = Integer.parseInt(cantidadTexto);
+
+                // Establece el valor de cantidad en el objeto item
+                item.setCant(cantidad);
+            } catch (NumberFormatException e) {
+                // Si el texto no es un número válido, muestra un mensaje de error
+                JOptionPane.showMessageDialog(null, "Por favor, ingrese un número válido para la cantidad.", 
+                                              "Error de formato", JOptionPane.ERROR_MESSAGE);
+            }
+            item.setUbicacion(textoUbicacion.getText());
+            item.setEspecialidad(textoEspecialidad.getText());
+            int cantidadMedicamentos = listaMedicamentos.contar();
+            if (cantidadMedicamentos < 9) {
+                int cant = cantidadMedicamentos+1;
+                item.setID("MED00"+cant);
+            }
+            else if(cantidadMedicamentos<100){
+                int cant = cantidadMedicamentos+1;
+                item.setID("MED0"+cant);
+            }
+            
+            listaMedicamentos.adiFinal(item);
+
+            // Limpiar los campos después de agregar
+            textoNombre.setText("");
+            textoExpiracion.setText("");
+            textoCantidad.setText("");
+            textoUbicacion.setText("");
+            textoEspecialidad.setText("");
+
+            // Mostrar un mensaje de éxito
+            JOptionPane.showMessageDialog(null, "Elemento agregado correctamente.", 
+                                          "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
+}
